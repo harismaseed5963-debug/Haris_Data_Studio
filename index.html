@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haris Data Studio | Data Analytics & Business Intelligence</title>
+  <meta name="description" content="Haris Data Studio helps businesses and students turn data into decisions using Excel, SQL, Power BI, dashboards, and data analytics.">
+  <meta name="keywords" content="Haris Data Studio, Data Analytics, Business Intelligence, Power BI, SQL, Excel, Dashboards, Data Analyst Portfolio">
+  <meta name="author" content="Haris Data Studio">
+  
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Haris Data Studio | Data Analytics & Business Intelligence">
+  <meta property="og:description" content="We help businesses and students understand data through Excel, SQL, Power BI, and dashboards that turn numbers into decisions.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#03045E',
+              accent: '#00B4D8',
+              light: '#CAF0F8',
+              white: '#FFFFFF'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Chart.js CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Design System CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#FAFDFF] text-[#03045E] antialiased">
+
+  <!-- ==========================================================================
+       1. NAVIGATION BAR
+       ========================================================================== -->
+  <header id="mainHeader" class="site-header flex items-center">
+    <div class="container-custom w-full flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-[#03045E] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="12" width="4" height="9" rx="1.5" fill="#00B4D8"/>
+            <rect x="10" y="7" width="4" height="14" rx="1.5" fill="#CAF0F8"/>
+            <rect x="17" y="3" width="4" height="18" rx="1.5" fill="#00B4D8"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-lg tracking-tight text-[#03045E] leading-none">HARIS DATA STUDIO</span>
+          <span class="text-[10px] font-semibold tracking-widest text-[#00B4D8] uppercase">Data Analytics</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#insights" class="nav-link">Insights</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Action Button -->
+      <div class="hidden md:flex items-center">
+        <a href="#contact" class="btn btn-primary">
+          <span>Work With Me</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg text-[#03045E] hover:bg-[#CAF0F8] focus:outline-none" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobileNavDrawer" class="fixed inset-x-0 top-[var(--nav-height)] bg-white border-b border-[rgba(3,4,94,0.1)] p-6 shadow-xl hidden md:hidden flex-col gap-4">
+      <a href="#hero" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2 border-b border-[rgba(3,4,94,0.05)]">Home</a>
+      <a href="#about" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2 border-b border-[rgba(3,4,94,0.05)]">About</a>
+      <a href="#services" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2 border-b border-[rgba(3,4,94,0.05)]">Services</a>
+      <a href="#projects" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2 border-b border-[rgba(3,4,94,0.05)]">Projects</a>
+      <a href="#insights" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2 border-b border-[rgba(3,4,94,0.05)]">Insights</a>
+      <a href="#contact" class="text-base font-bold text-[#03045E] hover:text-[#00B4D8] py-2">Contact</a>
+      <a href="#contact" class="btn btn-primary w-full mt-2">Work With Me</a>
+    </div>
+  </header>
+
+  <main class="pt-[calc(var(--nav-height)+2rem)]">
+
+    <!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="py-12 md:py-20 relative overflow-hidden">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Content -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="section-badge">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#00B4D8]"></i>
+              <span>DATA ANALYTICS • BUSINESS INTELLIGENCE • EDUCATION</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#03045E] leading-[1.1] tracking-tight">
+              Turn Data Into <span class="text-[#00B4D8] underline decoration-[#CAF0F8] decoration-wavy underline-offset-8">Decisions.</span>
+            </h1>
+
+            <p class="text-lg text-[#3D486B] leading-relaxed max-w-xl">
+              Haris Data Studio helps businesses and students understand data through Excel, SQL, Power BI, and dashboards that turn numbers into meaningful insights.
+            </p>
+
+            <!-- Brand Flow Visual Strip -->
+            <div class="py-3 border-y border-[rgba(3,4,94,0.08)]">
+              <span class="block text-[11px] font-bold tracking-widest text-[#6E7A9F] uppercase mb-2">Core Analytical Workflow</span>
+              <div class="flow-container">
+                <span class="flow-step">RAW DATA</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">ANALYSIS</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">INSIGHT</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step" style="background-color: #00B4D8; color: #FFFFFF;">DECISION</span>
+              </div>
+            </div>
+
+            <!-- Hero CTAs -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#projects" class="btn btn-primary">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                <span>Explore My Work</span>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                <span>Let’s Work Together</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Hero Visual: Interactive Analytics Dashboard Card -->
+          <div class="lg:col-span-6">
+            <div class="dash-card bg-white p-6 rounded-2xl shadow-xl border border-[rgba(3,4,94,0.12)] relative">
+              
+              <!-- Dashboard Card Header -->
+              <div class="flex items-center justify-between border-b border-[rgba(3,4,94,0.08)] pb-4 mb-5">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#00B4D8] animate-pulse"></span>
+                    <h3 class="font-bold text-base text-[#03045E]">Haris Data Studio Executive Overview</h3>
+                  </div>
+                  <span class="text-xs text-[#6E7A9F]">Live Business Intelligence & Reporting Feed</span>
+                </div>
+                
+                <!-- Period Toggle -->
+                <div class="flex bg-[#CAF0F8] p-1 rounded-lg">
+                  <button id="btnMonthlyPeriod" class="px-2.5 py-1 text-xs font-bold rounded-md bg-[#03045E] text-white transition-all">Monthly</button>
+                  <button id="btnQuarterlyPeriod" class="px-2.5 py-1 text-xs font-bold rounded-md text-[#03045E] hover:text-[#00B4D8] transition-all">Quarterly</button>
+                </div>
+              </div>
+
+              <!-- Top KPI Widgets -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <div class="p-3 bg-[#F8FDFF] border border-[rgba(3,4,94,0.06)] rounded-xl">
+                  <span class="block text-[11px] font-bold text-[#6E7A9F] uppercase">Revenue</span>
+                  <span class="text-lg font-extrabold text-[#03045E]">$128,450</span>
+                  <span class="block text-[10px] font-bold text-emerald-600">+28.4% YoY</span>
+                </div>
+                <div class="p-3 bg-[#F8FDFF] border border-[rgba(3,4,94,0.06)] rounded-xl">
+                  <span class="block text-[11px] font-bold text-[#6E7A9F] uppercase">Active Dashboards</span>
+                  <span class="text-lg font-extrabold text-[#03045E]">14</span>
+                  <span class="block text-[10px] font-bold text-[#00B4D8]">Power BI / Excel</span>
+                </div>
+                <div class="p-3 bg-[#F8FDFF] border border-[rgba(3,4,94,0.06)] rounded-xl">
+                  <span class="block text-[11px] font-bold text-[#6E7A9F] uppercase">Insights</span>
+                  <span class="text-lg font-extrabold text-[#03045E]">48+</span>
+                  <span class="block text-[10px] font-bold text-purple-600">Actionable</span>
+                </div>
+                <div class="p-3 bg-[#F8FDFF] border border-[rgba(3,4,94,0.06)] rounded-xl">
+                  <span class="block text-[11px] font-bold text-[#6E7A9F] uppercase">Accuracy</span>
+                  <span class="text-lg font-extrabold text-[#03045E]">99.4%</span>
+                  <span class="block text-[10px] font-bold text-blue-600">Validated SQL</span>
+                </div>
+              </div>
+
+              <!-- Interactive Chart Container -->
+              <div class="h-56 w-full bg-[#F8FDFF] rounded-xl p-3 border border-[rgba(3,4,94,0.06)] mb-4">
+                <canvas id="heroChartCanvas"></canvas>
+              </div>
+
+              <!-- Insight Indicator Callout Box -->
+              <div class="p-3 bg-[#CAF0F8] border border-[rgba(0,180,216,0.3)] rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-[#00B4D8] text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-bold text-[#03045E]">AUTOMATED BUSINESS INSIGHT</span>
+                    <span class="block text-xs text-[#3D486B]">Highest quarterly margin growth driven by SQL customer retention model (+34%).</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. TRUST / SKILLS SECTION
+         ========================================================================== -->
+    <section class="py-8 bg-white border-y border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="shrink-0">
+            <span class="text-xs font-extrabold tracking-widest text-[#00B4D8] uppercase">CORE ANALYTICAL STACK</span>
+          </div>
+          <div id="skillStripContainer" class="flex flex-wrap items-center justify-center md:justify-end gap-3">
+            <!-- Dynamically populated via js/app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. ABOUT SECTION
+         ========================================================================== -->
+    <section id="about" class="py-20 bg-[#FAFDFF]">
+      <div class="container-custom">
+        
+        <div class="max-w-3xl mb-16">
+          <div class="section-badge">ABOUT HARIS DATA STUDIO</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E] mb-4">
+            From Raw Data to Meaningful Insights.
+          </h2>
+          <p class="text-base sm:text-lg text-[#3D486B] leading-relaxed">
+            Haris Data Studio focuses on transforming complex and messy data into clear information that people can understand and use to make better decisions.
+          </p>
+        </div>
+
+        <!-- 3-Step Process Cards -->
+        <div id="aboutProcessContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Dynamically populated via js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SERVICES SECTION
+         ========================================================================== -->
+    <section id="services" class="py-20 bg-white border-t border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="section-badge">OUR ANALYTICAL OFFERINGS</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E] mb-4">
+            What I Can Help You With
+          </h2>
+          <p class="text-base text-[#3D486B]">
+            End-to-end data analytics solutions tailored for small businesses, corporate leaders, and ambitious students.
+          </p>
+        </div>
+
+        <!-- 6 Service Cards Grid -->
+        <div id="servicesGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically populated via js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. PROJECT PORTFOLIO SECTION
+         ========================================================================== -->
+    <section id="projects" class="py-20 bg-[#FAFDFF] border-t border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div class="section-badge">CASE STUDIES & DASHBOARDS</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E]">
+              Turning Data Into Insights.
+            </h2>
+          </div>
+
+          <!-- Project Filter Tabs -->
+          <div id="projectFilterTabs" class="flex flex-wrap gap-2">
+            <!-- Dynamically populated via js/app.js -->
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projectsGridContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Dynamically populated via js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. DATA STORYTELLING SECTION
+         ========================================================================== -->
+    <section class="py-20 bg-white border-t border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="section-badge">VISUAL STORYTELLING PIPELINE</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E] mb-4">
+            Numbers Tell Stories. Analysis Reveals Them.
+          </h2>
+          <p class="text-base text-[#3D486B]">
+            Click through our 6-stage data architecture pipeline to explore how messy tables are transformed into actionable business decisions.
+          </p>
+        </div>
+
+        <!-- Pipeline Steps Grid & Detailed Inspector Box -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Steps Navigation Buttons (Left) -->
+          <div id="pipelineStepsContainer" class="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
+            <!-- Dynamically populated via js/app.js -->
+          </div>
+
+          <!-- Inspector Display Box (Right) -->
+          <div class="lg:col-span-7">
+            <div id="pipelineDetailsBox" class="dash-card bg-[#F8FDFF] border border-[rgba(0,180,216,0.3)] p-8 rounded-2xl min-h-[320px] flex flex-col justify-center">
+              <!-- Dynamically updated on click -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. WHY HARIS DATA STUDIO
+         ========================================================================== -->
+    <section class="py-20 bg-[#FAFDFF] border-t border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        
+        <div class="max-w-2xl mb-16">
+          <div class="section-badge">THE VALUE PROPOSITION</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E] mb-4">
+            More Than Just Numbers.
+          </h2>
+          <p class="text-base text-[#3D486B]">
+            We bridge the gap between technical data engineering and strategic executive decision-making.
+          </p>
+        </div>
+
+        <!-- 4 Feature Blocks -->
+        <div id="whyHarisContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Dynamically populated via js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. INSIGHTS / EDUCATIONAL HUB SECTION
+         ========================================================================== -->
+    <section id="insights" class="py-20 bg-white border-t border-[rgba(3,4,94,0.08)]">
+      <div class="container-custom">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div class="section-badge">EDUCATION & ARTICLES</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E]">
+              Learn With Haris Data Studio
+            </h2>
+          </div>
+
+          <!-- Article Filter Tabs -->
+          <div id="insightFilterTabs" class="flex flex-wrap gap-2">
+            <!-- Dynamically populated via js/app.js -->
+          </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div id="insightsGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Dynamically populated via js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. CALL TO ACTION SECTION (CTA)
+         ========================================================================== -->
+    <section class="py-16 bg-[#03045E] text-white relative overflow-hidden">
+      <div class="container-custom text-center max-w-3xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#00B4D8] text-white text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+          <span>GET STARTED TODAY</span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+          Have Data? Let’s Turn It Into Insight.
+        </h2>
+
+        <p class="text-base sm:text-lg text-[#CAF0F8] leading-relaxed mb-8">
+          Whether you're learning analytics, building a dashboard, or trying to understand your business data, let’s turn your numbers into something useful.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#contact" class="btn btn-primary text-base py-3.5 px-8">
+            <i data-lucide="send" class="w-5 h-5"></i>
+            <span>Start a Conversation</span>
+          </a>
+          <a href="#projects" class="btn bg-white text-[#03045E] hover:bg-[#CAF0F8] text-base py-3.5 px-8">
+            <i data-lucide="eye" class="w-5 h-5"></i>
+            <span>View Projects</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. CONTACT SECTION
+         ========================================================================== -->
+    <section id="contact" class="py-20 bg-[#FAFDFF]">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Left Copy & Social Links -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="section-badge">CONNECT WITH US</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#03045E]">
+              Let’s Connect.
+            </h2>
+            <p class="text-base text-[#3D486B] leading-relaxed">
+              Have a dataset to analyze, a Power BI dashboard to design, or a tutoring request? Reach out directly and let’s start turning your data into decisions.
+            </p>
+
+            <div class="space-y-4 pt-4 border-t border-[rgba(3,4,94,0.08)]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-[#6E7A9F] uppercase">WhatsApp Number</span>
+                  <a href="https://wa.me/923468700981" target="_blank" class="text-sm font-bold text-[#03045E] hover:text-[#00B4D8] transition-colors">0346 8700981 (+92 346 8700981)</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#CAF0F8] text-[#03045E] flex items-center justify-center font-bold">
+                  <i data-lucide="mail" class="w-5 h-5 text-[#00B4D8]"></i>
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-[#6E7A9F] uppercase">Email Inquiries</span>
+                  <a href="mailto:harisdatastudio@gmail.com" class="text-sm font-bold text-[#03045E] hover:text-[#00B4D8] transition-colors">harisdatastudio@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="pt-4 space-y-3">
+              <span class="block text-xs font-bold text-[#6E7A9F] uppercase tracking-wider">Professional Channels</span>
+              <div class="flex items-center gap-3 flex-wrap">
+                <a href="https://www.linkedin.com/in/haris-ur-rehman-880126381?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 px-3.5 py-2 bg-white border border-[rgba(3,4,94,0.08)] rounded-xl text-xs font-bold text-[#03045E] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-all">
+                  <i data-lucide="linkedin" class="w-4 h-4 text-[#00B4D8]"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/harismaseed5963-debug" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 px-3.5 py-2 bg-white border border-[rgba(3,4,94,0.08)] rounded-xl text-xs font-bold text-[#03045E] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-all">
+                  <i data-lucide="github" class="w-4 h-4 text-[#00B4D8]"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.tiktok.com/@haris.data.studio?_r=1&_t=ZS-99D35LSzf64" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 px-3.5 py-2 bg-white border border-[rgba(3,4,94,0.08)] rounded-xl text-xs font-bold text-[#03045E] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-all">
+                  <i data-lucide="video" class="w-4 h-4 text-[#00B4D8]"></i>
+                  <span>TikTok</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Direct WhatsApp Contact Card (Right) -->
+          <div class="lg:col-span-7">
+            <div class="dash-card p-8 sm:p-10 bg-white rounded-3xl border border-[rgba(3,4,94,0.12)] shadow-xl relative overflow-hidden flex flex-col justify-between space-y-8">
+              
+              <!-- Subtle Background Accent Glow -->
+              <div class="absolute -top-12 -right-12 w-48 h-48 bg-[#25D366]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold mb-4">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-ping"></span>
+                  <span>INSTANT DIRECT MESSAGING</span>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-[#03045E] mb-3">
+                  Chat Directly on WhatsApp
+                </h3>
+                <p class="text-base text-[#3D486B] leading-relaxed mb-6">
+                  Skip the email waiting time. Click the button below to launch a direct 1-on-1 chat on WhatsApp with Haris Data Studio to discuss your business dashboard, dataset cleaning, or tutoring needs.
+                </p>
+
+                <!-- Phone Info Pill -->
+                <div class="p-4 bg-[#F8FDFF] border border-[rgba(3,4,94,0.08)] rounded-2xl flex items-center justify-between mb-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center font-bold shrink-0">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.429 2.5 1.157 3.475l-.76 2.775 2.842-.745c.942.593 2.057.933 3.259.934 3.184 0 5.769-2.586 5.769-5.766.001-3.181-2.584-5.767-5.767-5.767zm3.385 8.163c-.144.405-.837.774-1.17.821-.31.043-.709.074-2.19-.539-1.894-.783-3.109-2.715-3.204-2.842-.095-.127-.771-1.026-.771-1.957 0-.931.487-1.388.66-1.579.173-.191.378-.239.504-.239.126 0 .252.001.361.006.115.006.27-.043.422.321.156.374.536 1.31.583 1.405.047.095.078.207.016.331-.063.125-.095.203-.189.314-.095.111-.2.247-.286.331-.095.095-.194.198-.083.388.111.19.493.813 1.057 1.316.726.647 1.338.847 1.528.942.19.095.301.079.412-.047.111-.127.475-.554.602-.744.127-.19.253-.158.428-.095.174.063 1.109.523 1.299.618.19.095.316.143.363.222.047.08.047.464-.097.869z"/>
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.435 5.176L2 22l4.954-1.382C8.423 21.499 10.155 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.634 0-3.15-.443-4.455-1.213l-.319-.189-2.954.825.836-2.883-.207-.33A7.954 7.954 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-bold text-[#6E7A9F] uppercase">WhatsApp Direct Line</span>
+                      <span class="text-base font-extrabold text-[#03045E]">0346 8700981 (+92 346 8700981)</span>
+                    </div>
+                  </div>
+                  <span class="hidden sm:inline-block px-3 py-1 bg-[#CAF0F8] text-[#03045E] text-xs font-bold rounded-lg">Available Now</span>
+                </div>
+              </div>
+
+              <!-- Large WhatsApp Chat Button -->
+              <div class="space-y-3">
+                <a href="https://wa.me/923468700981?text=Hello%20Haris%20Data%20Studio%2C%20I%20would%20like%20to%20discuss%20a%20data%20analytics%20project!" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="w-full py-5 px-8 bg-[#25D366] hover:bg-[#1EBE5A] text-white text-lg font-extrabold rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-4 text-center border border-emerald-400">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.429 2.5 1.157 3.475l-.76 2.775 2.842-.745c.942.593 2.057.933 3.259.934 3.184 0 5.769-2.586 5.769-5.766.001-3.181-2.584-5.767-5.767-5.767zm3.385 8.163c-.144.405-.837.774-1.17.821-.31.043-.709.074-2.19-.539-1.894-.783-3.109-2.715-3.204-2.842-.095-.127-.771-1.026-.771-1.957 0-.931.487-1.388.66-1.579.173-.191.378-.239.504-.239.126 0 .252.001.361.006.115.006.27-.043.422.321.156.374.536 1.31.583 1.405.047.095.078.207.016.331-.063.125-.095.203-.189.314-.095.111-.2.247-.286.331-.095.095-.194.198-.083.388.111.19.493.813 1.057 1.316.726.647 1.338.847 1.528.942.19.095.301.079.412-.047.111-.127.475-.554.602-.744.127-.19.253-.158.428-.095.174.063 1.109.523 1.299.618.19.095.316.143.363.222.047.08.047.464-.097.869z"/>
+                  </svg>
+                  <span>Start WhatsApp Chat Now</span>
+                  <i data-lucide="external-link" class="w-5 h-5 opacity-80"></i>
+                </a>
+
+                <div class="flex items-center justify-center gap-2 text-xs font-semibold text-[#6E7A9F] pt-1">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-[#00B4D8]"></i>
+                  <span>Typically responds within 15 minutes</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       12. FOOTER
+       ========================================================================== -->
+  <footer class="bg-[#03045E] text-white py-12 border-t border-[rgba(255,255,255,0.1)]">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-[rgba(255,255,255,0.1)]">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#00B4D8] text-white flex items-center justify-center font-bold">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="12" width="4" height="9" rx="1.5" fill="#FFFFFF"/>
+                <rect x="10" y="7" width="4" height="14" rx="1.5" fill="#CAF0F8"/>
+                <rect x="17" y="3" width="4" height="18" rx="1.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <span class="font-extrabold text-xl tracking-tight text-white">HARIS DATA STUDIO</span>
+          </div>
+          <p class="text-sm text-[#CAF0F8] max-w-md leading-relaxed">
+            “We help businesses and students understand data through Excel, SQL, Power BI, and dashboards that turn numbers into decisions.”
+          </p>
+          <span class="inline-block text-xs font-mono text-[#00B4D8] font-bold">TAGLINE: "Turning Data Into Decisions."</span>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold text-[#00B4D8] uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm text-[#CAF0F8]">
+            <li><a href="#hero" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="#projects" class="hover:text-white transition-colors">Projects</a></li>
+            <li><a href="#insights" class="hover:text-white transition-colors">Insights</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Links -->
+        <div>
+          <h4 class="text-xs font-bold text-[#00B4D8] uppercase tracking-wider mb-4">Social Channels</h4>
+          <ul class="space-y-2 text-sm text-[#CAF0F8]">
+            <li><a href="https://www.linkedin.com/in/haris-ur-rehman-880126381?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a></li>
+            <li><a href="https://github.com/harismaseed5963-debug" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a></li>
+            <li><a href="https://www.tiktok.com/@haris.data.studio?_r=1&_t=ZS-99D35LSzf64" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">TikTok</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-[#CAF0F8] gap-4">
+        <span>© 2026 Haris Data Studio. All rights reserved.</span>
+        <span>Built with Precision Analytics & Modern Web Standards</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       GLOBAL REUSABLE MODAL OVERLAY
+       ========================================================================== -->
+  <div id="globalModalOverlay" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close" aria-label="Close dialog">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <h3 id="modalTitle" class="text-2xl font-extrabold text-[#03045E] mb-4 pr-8">Modal Title</h3>
+      <div id="modalBody">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
